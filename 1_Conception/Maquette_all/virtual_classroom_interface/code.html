@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Virtual Classroom Interface</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#137fec",
+                "background-light": "#f6f7f8",
+                "background-dark": "#101922",
+                "danger": "#ef4444"
+              },
+              fontFamily: {
+                "display": ["Lexend"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d141b] transition-colors duration-200">
+<div class="flex h-screen flex-col overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-solid border-[#e7edf3] bg-white dark:bg-background-dark dark:border-slate-800 px-6 py-3 shrink-0">
+<div class="flex items-center gap-4">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div>
+<h2 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight">Advanced Mathematics</h2>
+<p class="text-xs text-[#4c739a] font-medium">Dr. Amadou Kouyaté • Grade 12</p>
+</div>
+</div>
+<!-- Timer Integration -->
+<div class="flex items-center gap-2 px-4 py-1.5 bg-primary/10 dark:bg-primary/20 rounded-full border border-primary/20">
+<span class="material-symbols-outlined text-primary text-sm">schedule</span>
+<div class="flex gap-1 text-primary font-bold text-sm">
+<span>00</span>:<span>42</span>:<span>18</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center rounded-lg h-10 px-3 bg-slate-100 dark:bg-slate-800 text-[#0d141b] dark:text-white hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-danger text-white gap-2 text-sm font-bold hover:bg-danger/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">call_end</span>
+<span>End Class</span>
+</button>
+</div>
+</header>
+<!-- Main Classroom Content -->
+<main class="flex flex-1 overflow-hidden relative">
+<!-- Left Side: Video/Whiteboard Area -->
+<div class="flex flex-col flex-1 p-4 gap-4 bg-slate-50 dark:bg-background-dark/50 overflow-hidden relative">
+<!-- Main Stage (Teacher/Whiteboard) -->
+<div class="relative flex-1 bg-black rounded-xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800">
+<!-- Background placeholder for Teacher Video -->
+<div class="absolute inset-0 bg-cover bg-center opacity-90" data-alt="Teacher explaining math on a camera feed" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3PAAwaw3L0CHPa7HdNGMphBoIzg_b-q2ni7tWxR5eSZDKvSYo95t-t6kkOthltkciQ8TwkkvTs2o33AXk7EX5ImA8-KYWtZGHMZJXSLBqcijhZ2QlkDqBT6dNZ3mYl4i8ZsTpv-zfbhflLFH5p6wy6m_7fQkPMDfnQyCUDMKQsVcnwZPun1r9y3gS-yTVKcknwpHnTy3QLxlnn32WACASkmzt_gZeTJ1Fjd9TnjqvH_TNnEFOyWj6_aNDyQrFKSLbiwTRP4GjOIY');"></div>
+<!-- Whiteboard Overlay Placeholder (Inactive by default) -->
+<!-- <div class="absolute inset-4 bg-white rounded-lg shadow-inner z-10 flex flex-col">...</div> -->
+<div class="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-2">
+<div class="size-2 bg-red-500 rounded-full animate-pulse"></div>
+<span class="text-white text-xs font-medium uppercase tracking-wider">Live</span>
+</div>
+<div class="absolute bottom-4 left-4 bg-black/40 backdrop-blur-md px-3 py-1 rounded-lg text-white text-sm font-medium">
+                        Teacher: Dr. Kouyaté
+                    </div>
+<!-- Student Thumbnail (Card Component Modification) -->
+<div class="absolute top-4 right-4 w-48 aspect-video bg-slate-900 rounded-lg overflow-hidden border-2 border-primary shadow-2xl z-20 group">
+<div class="w-full h-full bg-cover bg-center" data-alt="Student listening in small window" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuArLzigkirZs9NEUHDcsZibOOfhNcmNA_4GDOaI78Y5EiHqfl-dI_7mhIj3zacWPKHoMcqucvE-0ZWT2wbvcX4IibCRmZTjOod8HxZnFPtfYlAysT_yfkv96FLd89njx3fkMHxnskNM_ULfy2bYt8LczWQj1b_bSi53_0rG83bf1MIBeyNQnXj-doXjtaxU282xb30LUPiNZGmxP_Ase9x3D3FCkbqQrqj-TBX1Nfsj6JnStQyYTJYYq7V72qoiMaI2DwqvxSs05Ks');"></div>
+<div class="absolute bottom-0 inset-x-0 bg-black/60 p-1 px-2 flex justify-between items-center">
+<span class="text-[10px] text-white font-medium">You (Student)</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-white text-[12px]">mic</span>
+<span class="material-symbols-outlined text-green-400 text-[12px]">signal_cellular_4_bar</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Toolbar -->
+<div class="flex justify-center shrink-0 pb-2">
+<div class="flex items-center gap-2 px-6 py-3 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800">
+<button class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-[#0d141b] dark:text-white hover:bg-slate-200 transition-all flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined">mic</span>
+<span class="text-[10px] font-bold opacity-0 group-hover:opacity-100">Mute</span>
+</button>
+<button class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-[#0d141b] dark:text-white hover:bg-slate-200 transition-all flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined">videocam</span>
+<span class="text-[10px] font-bold opacity-0 group-hover:opacity-100">Camera</span>
+</button>
+<div class="w-[1px] h-8 bg-slate-200 dark:bg-slate-700 mx-1"></div>
+<button class="p-3 rounded-xl bg-primary text-white hover:bg-primary/90 transition-all flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined">present_to_all</span>
+<span class="text-[10px] font-bold opacity-0 group-hover:opacity-100">Share</span>
+</button>
+<button class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-[#0d141b] dark:text-white hover:bg-slate-200 transition-all flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined">draw</span>
+<span class="text-[10px] font-bold opacity-0 group-hover:opacity-100">Board</span>
+</button>
+<button class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-[#0d141b] dark:text-white hover:bg-slate-200 transition-all flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined">pan_tool</span>
+<span class="text-[10px] font-bold opacity-0 group-hover:opacity-100">Hand</span>
+</button>
+<div class="w-[1px] h-8 bg-slate-200 dark:bg-slate-700 mx-1"></div>
+<button class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-[#0d141b] dark:text-white hover:bg-slate-200 transition-all flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="text-[10px] font-bold opacity-0 group-hover:opacity-100">More</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Sidebar: Chat & Participants -->
+<aside class="w-80 flex flex-col border-l border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark shrink-0">
+<!-- Sidebar Tabs -->
+<div class="flex border-b border-slate-100 dark:border-slate-800">
+<button class="flex-1 py-4 text-sm font-bold text-primary border-b-2 border-primary">Chat</button>
+<button class="flex-1 py-4 text-sm font-medium text-[#4c739a] hover:text-primary transition-colors">Participants (2)</button>
+</div>
+<!-- Chat Messages Area -->
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<!-- Teacher Message -->
+<div class="flex flex-col gap-1">
+<span class="text-[11px] font-bold text-[#4c739a]">Teacher • 10:40 AM</span>
+<div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-tr-xl rounded-b-xl max-w-[90%]">
+<p class="text-sm text-[#0d141b] dark:text-slate-200">Welcome everyone. Today we are looking at quadratic equations. Does everyone see my screen?</p>
+</div>
+</div>
+<!-- Student Message -->
+<div class="flex flex-col items-end gap-1">
+<span class="text-[11px] font-bold text-[#4c739a]">You • 10:41 AM</span>
+<div class="bg-primary text-white p-3 rounded-tl-xl rounded-b-xl max-w-[90%] shadow-sm">
+<p class="text-sm">Yes, Professor! Crystal clear from Yaoundé.</p>
+</div>
+</div>
+<!-- System Note -->
+<div class="flex justify-center py-2">
+<span class="text-[10px] bg-slate-50 dark:bg-slate-800/50 px-2 py-1 rounded text-[#4c739a] uppercase tracking-tighter">Whiteboard shared</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[11px] font-bold text-[#4c739a]">Teacher • 10:42 AM</span>
+<div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-tr-xl rounded-b-xl max-w-[90%]">
+<p class="text-sm text-[#0d141b] dark:text-slate-200">Great. Let's look at this formula: <br/><span class="font-mono mt-1 block bg-white dark:bg-slate-900 p-1 rounded border border-slate-200 dark:border-slate-700">x = [-b ± √(b² - 4ac)] / 2a</span></p>
+</div>
+</div>
+</div>
+<!-- Chat Input -->
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="relative flex items-center">
+<input class="w-full pl-4 pr-12 py-3 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary dark:text-white" placeholder="Type a message..." type="text"/>
+<button class="absolute right-2 p-1.5 text-primary">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+<div class="flex gap-2 mt-3 overflow-x-auto pb-1 scrollbar-hide">
+<button class="shrink-0 px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-[10px] font-bold text-[#4c739a] hover:bg-primary/10 hover:text-primary">🙋‍♂️ I have a question</button>
+<button class="shrink-0 px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-[10px] font-bold text-[#4c739a] hover:bg-primary/10 hover:text-primary">👍 Understand</button>
+</div>
+</div>
+</aside>
+</main>
+<!-- Connectivity/Status Footer -->
+<footer class="h-8 bg-slate-100 dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 px-4 flex items-center justify-between text-[10px] text-[#4c739a] font-medium uppercase tracking-widest shrink-0">
+<div class="flex gap-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-green-500">sensors</span> System Stable</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">visibility</span> 1 Viewer</span>
+</div>
+<div>
+                Tutoring Platform • CEMAC Region v2.4
+            </div>
+</footer>
+</div>
+</body></html>

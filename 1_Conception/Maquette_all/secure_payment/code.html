@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Payment | CEMAC Learn</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec80",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .payment-option-radio:checked + label {
+            border-color: #13ec80;
+            background-color: rgba(19, 236, 128, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d1b14] dark:text-white min-h-screen">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e7f3ed] dark:border-[#1e3a2c] bg-white dark:bg-[#102219] px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-4 text-[#0d1b14] dark:text-white">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">CEMAC Learn</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Find a Tutor</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">My Lessons</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Resources</a>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-[#e7f3ed] dark:bg-[#1e3a2c] text-[#0d1b14] dark:text-white hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-[#e7f3ed] dark:bg-[#1e3a2c] text-[#0d1b14] dark:text-white hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-10 lg:px-20 py-8">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 mb-6">
+<a class="text-primary text-sm font-medium leading-normal" href="#">Course Selection</a>
+<span class="material-symbols-outlined text-sm text-[#4c9a73]">chevron_right</span>
+<a class="text-primary text-sm font-medium leading-normal" href="#">Tutor Details</a>
+<span class="material-symbols-outlined text-sm text-[#4c9a73]">chevron_right</span>
+<span class="text-[#0d1b14] dark:text-white text-sm font-bold leading-normal">Secure Payment</span>
+</div>
+<div class="mb-10">
+<h1 class="text-[#0d1b14] dark:text-white tracking-tight text-3xl font-bold leading-tight">Complete Your Enrollment</h1>
+<p class="text-[#4c9a73] mt-2">Join over 5,000 students learning across Cameroon, Gabon, and Congo.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Left Column: Payment Methods -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<!-- Secure Badge -->
+<div class="bg-primary/10 border border-primary/20 rounded-xl p-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">verified_user</span>
+<div>
+<p class="text-[#0d1b14] dark:text-white font-bold text-sm">Secure 256-bit SSL Encrypted Payment</p>
+<p class="text-[#4c9a73] text-xs">Your financial data is protected by industry-leading security protocols.</p>
+</div>
+</div>
+<div class="bg-white dark:bg-[#152a20] rounded-xl border border-[#e7f3ed] dark:border-[#1e3a2c] overflow-hidden">
+<h2 class="text-[#0d1b14] dark:text-white text-xl font-bold p-6 border-b border-[#e7f3ed] dark:border-[#1e3a2c]">Choose Payment Method</h2>
+<div class="p-6">
+<!-- Mobile Money Options -->
+<div class="mb-8">
+<h3 class="text-sm font-semibold text-[#4c9a73] uppercase tracking-wider mb-4">Mobile Money (CEMAC Region)</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<input checked="" class="hidden payment-option-radio" id="mtn" name="payment" type="radio"/>
+<label class="flex items-center justify-between p-4 border-2 border-[#e7f3ed] dark:border-[#1e3a2c] rounded-xl cursor-pointer hover:border-primary/50 transition-all" for="mtn">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center font-bold text-black text-xs p-1 text-center">MTN MoMo</div>
+<div>
+<p class="font-bold text-sm">MTN Mobile Money</p>
+<p class="text-xs text-[#4c9a73]">Cameroon, Congo, Gabon</p>
+</div>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center">
+<div class="w-2.5 h-2.5 bg-primary rounded-full"></div>
+</div>
+</label>
+</div>
+<div>
+<input class="hidden payment-option-radio" id="orange" name="payment" type="radio"/>
+<label class="flex items-center justify-between p-4 border-2 border-[#e7f3ed] dark:border-[#1e3a2c] rounded-xl cursor-pointer hover:border-primary/50 transition-all" for="orange">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center font-bold text-white text-xs p-1 text-center">Orange Money</div>
+<div>
+<p class="font-bold text-sm">Orange Money</p>
+<p class="text-xs text-[#4c9a73]">Regional wide</p>
+</div>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-[#e7f3ed] dark:border-[#1e3a2c]"></div>
+</label>
+</div>
+</div>
+<div class="mt-6 space-y-4">
+<label class="block">
+<span class="text-sm font-medium text-[#0d1b14] dark:text-white">Phone Number</span>
+<div class="mt-1 relative flex">
+<span class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-[#e7f3ed] dark:border-[#1e3a2c] bg-[#f8fcfa] dark:bg-[#102219] text-[#4c9a73] text-sm">+237</span>
+<input class="block w-full rounded-none rounded-r-lg border-[#e7f3ed] dark:border-[#1e3a2c] dark:bg-[#102219] focus:ring-primary focus:border-primary text-sm" placeholder="670 00 00 00" type="text"/>
+</div>
+</label>
+<p class="text-xs text-[#4c9a73] italic flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">info</span>
+                                        You will receive a prompt on your phone to authorize the transaction.
+                                    </p>
+</div>
+</div>
+<!-- Bank Card Option -->
+<div>
+<h3 class="text-sm font-semibold text-[#4c9a73] uppercase tracking-wider mb-4">Bank Card</h3>
+<input class="hidden payment-option-radio" id="card" name="payment" type="radio"/>
+<label class="flex items-center justify-between p-4 border-2 border-[#e7f3ed] dark:border-[#1e3a2c] rounded-xl cursor-pointer hover:border-primary/50 transition-all" for="card">
+<div class="flex items-center gap-3">
+<div class="flex gap-1">
+<div class="w-8 h-5 bg-blue-800 rounded flex items-center justify-center text-[8px] text-white font-bold">VISA</div>
+<div class="w-8 h-5 bg-red-600 rounded flex items-center justify-center text-[8px] text-white font-bold">MC</div>
+</div>
+<div>
+<p class="font-bold text-sm">Credit or Debit Card</p>
+<p class="text-xs text-[#4c9a73]">Visa, Mastercard, American Express</p>
+</div>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-[#e7f3ed] dark:border-[#1e3a2c]"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="lg:col-span-4">
+<div class="sticky top-24 space-y-6">
+<div class="bg-white dark:bg-[#152a20] rounded-xl border border-[#e7f3ed] dark:border-[#1e3a2c] shadow-sm overflow-hidden">
+<h2 class="text-[#0d1b14] dark:text-white text-lg font-bold p-5 border-b border-[#e7f3ed] dark:border-[#1e3a2c]">Order Summary</h2>
+<div class="p-5 flex items-start gap-4 border-b border-[#e7f3ed] dark:border-[#1e3a2c]">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-background-light">
+<img alt="Tutor" class="w-full h-full object-cover" data-alt="Portrait of a smiling professional math tutor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-yXE9InY3AUukuHb1FHM9JoBj5qTc9GlEnsBeTAKqQ2I3zgszJphbYyeMcHwAV9AoHY30ngwGSU2TNYEOW2PQkHEMX8fnb30-liTi4g_k192C4_1cd62F0cnYkWbzQ8piHGCRm8PIvT66xk8_Y6mZVgOW4A87JA_SAZzZramq3cp7ZFvTdsqJxMVjn36s1IaU8_JFrcvC36CXmW1HddicEPOukMRIc-J1l5n3ohp_KyH1TCTVBBDuPZ_V7fseHC7pPQWnUkvN008"/>
+</div>
+<div class="flex-1">
+<h3 class="font-bold text-sm text-[#0d1b14] dark:text-white">Math Tutoring (10 Hours)</h3>
+<p class="text-xs text-[#4c9a73]">with Dr. Samuel Eto'o</p>
+<p class="text-xs text-[#4c9a73] mt-1">Online Interactive Session</p>
+</div>
+</div>
+<div class="p-5 space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-[#4c9a73]">Base Price</span>
+<span class="text-[#0d1b14] dark:text-white">50,000 XAF</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-[#4c9a73]">Platform Fee</span>
+<span class="text-[#0d1b14] dark:text-white">2,000 XAF</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-[#4c9a73]">VAT (19.2%)</span>
+<span class="text-[#0d1b14] dark:text-white">9,600 XAF</span>
+</div>
+<div class="pt-3 border-t border-[#e7f3ed] dark:border-[#1e3a2c] flex justify-between">
+<span class="font-bold text-base text-[#0d1b14] dark:text-white">Total</span>
+<span class="font-bold text-lg text-primary">61,600 XAF</span>
+</div>
+</div>
+<div class="p-5 bg-[#f8fcfa] dark:bg-[#102219]">
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2">
+                                    Pay and confirm
+                                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<p class="text-[10px] text-center text-[#4c9a73] mt-4">
+                                    By completing your purchase, you agree to our <a class="underline" href="#">Terms of Service</a>. 
+                                    Payments are processed securely via regional partners.
+                                </p>
+</div>
+</div>
+<!-- Money Back Guarantee -->
+<div class="flex items-center gap-3 px-2">
+<span class="material-symbols-outlined text-primary">currency_exchange</span>
+<p class="text-xs text-[#4c9a73]">
+<span class="font-bold text-[#0d1b14] dark:text-white">Money-back guarantee.</span> 
+                                If you are not satisfied with your first lesson, we'll refund you 100%.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="border-t border-[#e7f3ed] dark:border-[#1e3a2c] py-10 mt-auto bg-white dark:bg-[#102219]">
+<div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-2 text-[#4c9a73] text-sm">
+<span class="material-symbols-outlined">shield</span>
+<span>CEMAC Region Compliant Payment System</span>
+</div>
+<div class="flex gap-6 text-sm text-[#4c9a73]">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Refund Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

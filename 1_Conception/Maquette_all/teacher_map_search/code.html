@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Teacher Map Search - CEMAC TutorConnect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#137fec",
+                "background-light": "#f6f7f8",
+                "background-dark": "#101922",
+              },
+              fontFamily: {
+                "display": ["Lexend", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e7edf3] dark:border-slate-800 bg-white dark:bg-background-dark px-10 py-3 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-6">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">CEMAC TutorConnect</h2>
+</div>
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#4c739a] flex border-none bg-[#e7edf3] dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-[#e7edf3] dark:bg-slate-800 text-[#0d141b] dark:text-white focus:ring-0 h-full placeholder:text-[#4c739a] px-4 rounded-r-lg text-sm font-normal" placeholder="Search courses or tutors" value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-9">
+<a class="text-[#0d141b] dark:text-slate-300 text-sm font-medium leading-normal" href="#">Find Tutors</a>
+<a class="text-[#0d141b] dark:text-slate-300 text-sm font-medium leading-normal" href="#">Courses</a>
+<a class="text-[#0d141b] dark:text-slate-300 text-sm font-medium leading-normal" href="#">Resources</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold">
+                    Sign In
+                </button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-slate-200" data-alt="User profile placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDUun8SdRCPUDKZ4R91v2orR62oA9lyG3gcXeIUBnYey7gVOjADXA-QmWF5yIRpPTP6u_6trnWhUMIRm2Ny38i2UsnhzyObwBbL4G3V38TXxW9kllqWlAXzi3LoXJLHdNO0tQqeKZC47S4hsgfq7tuE3ynSqtJdQkwVapAGnxyuo5cDzVbdBgLXHHaq66xVCAL4KisrbwsHQEWhE-fQH0CHfIrue4LK6Tt4HKDzom4banJuJbGI20FNr6E4kJWnzzFOYPPDfMe6p-Y");'></div>
+</div>
+</div>
+</header>
+<!-- Main Map Area -->
+<main class="relative flex-1 w-full overflow-hidden">
+<!-- Interactive Map (Simulated) -->
+<div class="absolute inset-0 bg-[#e5e7eb] dark:bg-slate-900 overflow-hidden" data-location="Yaoundé, Cameroon" style="">
+<div class="w-full h-full bg-cover bg-center opacity-80" data-alt="Stylized map of Yaoundé city center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhLU03jCfM9A_Id28oYzW_Uh4l7acbSBULs8Ok9psQKjGf6I6ladzvuAFKqzJrvtjos3hvADm8Y0XPuNySmJmgbYMqnqNLlHS45cVFOci_5hmmQrTvRRSCOi_dBXMEqA083hVs0MsXSRI400lh9Jpce8JtoCZKggeAnIxavqenuc9ImH2EBA3Uxw_yiqNLOEiUTKN-yMkvVIVNQyzGDLq4IC8S7yidxgKbthXbt6sf8KPjTFAxLLBqQELzOCwd1uBYtfSXjqiOjNA");'></div>
+<!-- Map Markers -->
+<!-- Marker 1 (Active/Selected) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer group">
+<div class="relative flex flex-col items-center">
+<div class="bg-primary text-white p-1 rounded-full border-2 border-white shadow-xl transform scale-125">
+<div class="size-8 rounded-full bg-cover" data-alt="Tutor profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCuy0Nud7iEz23Yjmq4spFl7ZTifhad0rV9qiEFebtcqGn7llwHRTNWxESpsKmp2wA2pEG8az26JJxKrnMw6GzQDOegzjPZ2--CS8rQDVOX2KVLMzf3pYCdWiRBIhzbCJBBqCj4VxlENaOm4x9vhncqGlF8HWiSOW6VCsl_3asI0h01x517PB5soVSRNmmzTS2tYz2hAsUOnuS5LHgOmIYDUAS1GabdSfC7jT-nOlpAKHMeyL1QVeKxe-w96BXKX0-aR5QdCM_gyZc")'></div>
+</div>
+<div class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-primary"></div>
+</div>
+</div>
+<!-- Marker 2 -->
+<div class="absolute top-[35%] left-[45%] cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<div class="relative flex flex-col items-center">
+<div class="bg-white dark:bg-slate-700 p-1 rounded-full border-2 border-primary shadow-lg">
+<div class="size-6 rounded-full bg-cover" data-alt="Tutor profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjSfDbf8IpXNROe1pLeitSjeDD5iF72ptDHCjG9NPW_DxeLyxReSVYHcyE7Z7fiPilpIBaHJ4188Atanow2117ASHKjy-qYQzprRBqsIhhXjTpEh5JjHcOKRE78ZkzV-AyVRjjFXLPuCNAZJvt3a4ocQ0UMGRKMik18X7NAa7pT1HVbtq68ork-EvJprnj3K2TlqF8nT4t1mh7iq_2etqxP8I1xND8COjQlcyO9TIaE4roF0CnCvUtOVYsqrPGbSv2zDg0sD-coPg")'></div>
+</div>
+<div class="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-primary"></div>
+</div>
+</div>
+<!-- Marker 3 -->
+<div class="absolute top-[60%] left-[55%] cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<div class="relative flex flex-col items-center">
+<div class="bg-white dark:bg-slate-700 p-1 rounded-full border-2 border-primary shadow-lg">
+<div class="size-6 rounded-full bg-cover" data-alt="Tutor profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAIHWWzgYAEMpfezyzKPC19B4pZGmHeGCaJCkjvznh08NQmAaEGzgC9v3AR2oGTPj0pK_kl7WAL-eKHpVdw9YyJL4RX32Z37VK_JYlJVeGA55-XaNww7Acp8UvfJ_fKhu2inDUBfzYLOMJ0LiuAE_BeJdul_vhtXEOz9ciAEwCx6FIRZvBQ15RquQEJkYndAn1xu6GnIXnUl-1jSsJFlVJIq6ceUPob_I3dhl5OEnaa5no-aIMC-iMSlLdAJ0li7gpNBJsuazCVR2w")'></div>
+</div>
+<div class="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-primary"></div>
+</div>
+</div>
+</div>
+<!-- Overlays -->
+<div class="absolute inset-0 pointer-events-none p-6 flex flex-col">
+<!-- Top Filter Chips -->
+<div class="pointer-events-auto flex items-center justify-between gap-4">
+<div class="flex gap-3 p-2 bg-white/90 dark:bg-background-dark/90 backdrop-blur rounded-xl shadow-md overflow-x-auto no-scrollbar">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary text-white pl-4 pr-3">
+<p class="text-sm font-medium leading-normal">Subject: Math</p>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7edf3] dark:bg-slate-800 pl-4 pr-3">
+<p class="text-[#0d141b] dark:text-slate-200 text-sm font-medium leading-normal">Level</p>
+<span class="material-symbols-outlined text-lg text-[#4c739a]">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7edf3] dark:bg-slate-800 pl-4 pr-3">
+<p class="text-[#0d141b] dark:text-slate-200 text-sm font-medium leading-normal">Availability</p>
+<span class="material-symbols-outlined text-lg text-[#4c739a]">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7edf3] dark:bg-slate-800 pl-4 pr-3">
+<p class="text-[#0d141b] dark:text-slate-200 text-sm font-medium leading-normal">Price Range</p>
+<span class="material-symbols-outlined text-lg text-[#4c739a]">expand_more</span>
+</button>
+</div>
+<div class="flex gap-2 pointer-events-auto">
+<div class="bg-white/90 dark:bg-background-dark/90 backdrop-blur rounded-xl shadow-md p-1 flex">
+<button class="flex size-10 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined">map</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-lg text-[#4c739a] hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">list</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Middle Spatial Controls (Floating Right) -->
+<div class="flex-1 flex flex-col justify-center items-end gap-3 pr-2">
+<div class="flex flex-col gap-1 pointer-events-auto">
+<button class="flex size-12 items-center justify-center rounded-t-xl bg-white dark:bg-slate-800 shadow-lg text-[#0d141b] dark:text-white border-b border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="flex size-12 items-center justify-center rounded-b-xl bg-white dark:bg-slate-800 shadow-lg text-[#0d141b] dark:text-white">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+<button class="pointer-events-auto flex size-12 items-center justify-center rounded-xl bg-white dark:bg-slate-800 shadow-lg text-primary">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+<!-- Bottom Preview Card (Teacher Profile) -->
+<div class="pointer-events-auto flex justify-center w-full">
+<div class="w-full max-w-[600px] bg-white dark:bg-background-dark rounded-2xl shadow-2xl p-4 flex gap-5 border border-slate-100 dark:border-slate-800 transform translate-y-0 opacity-100">
+<div class="relative shrink-0">
+<div class="w-32 h-32 bg-center bg-no-repeat bg-cover rounded-xl shadow-inner" data-alt="Portrait of Dr. Amadou Chenge" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_RWhUQPfBUlx5d631dp0vRxLe-ESC46DV1mDby0rbIkVCdkaAQJpeNf0Gwx8iaVhsRObjo-TPV5ZNLbC_Lgb1w2qLNPVYg2cSRV-UyGFXAYy-TKUAq-gjP-I2OHWUW_nGcDEjY38YdgFjDLkLo2BOJTBMuY8Jz-yVc1tCzn9QP_vMoM1sTTX9j35LnpHJzdmz6GPVIKS1F017n6tRTzOd2WAP-uJM1Nw8eVEEkqy_gZaRuqKGvBsB8JL5HEBB9VPDDCHvqMMoYYU");'></div>
+<div class="absolute -bottom-2 -right-2 bg-green-500 border-2 border-white dark:border-background-dark size-4 rounded-full"></div>
+</div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="text-[#0d141b] dark:text-white text-xl font-bold leading-tight">Dr. Amadou Chenge</h3>
+<div class="flex items-center gap-1 bg-yellow-50 dark:bg-yellow-900/30 px-2 py-0.5 rounded-lg">
+<span class="material-symbols-outlined text-yellow-500 text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-yellow-700 dark:text-yellow-400 text-xs font-bold">4.9</span>
+</div>
+</div>
+<p class="text-[#4c739a] dark:text-slate-400 text-sm font-medium mt-0.5">Mathematics &amp; Physics Expert</p>
+<div class="flex items-center gap-3 mt-3">
+<div class="flex items-center gap-1 text-[#4c739a] dark:text-slate-400">
+<span class="material-symbols-outlined text-base">school</span>
+<span class="text-xs">University Level</span>
+</div>
+<div class="flex items-center gap-1 text-[#4c739a] dark:text-slate-400">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span class="text-xs">Available Today</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div>
+<span class="text-primary text-lg font-bold">15,000 FCFA</span>
+<span class="text-xs text-slate-400 font-normal"> / hour</span>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-9 px-4 bg-[#e7edf3] dark:bg-slate-800 text-[#0d141b] dark:text-white text-sm font-medium transition-colors hover:bg-slate-200 dark:hover:bg-slate-700">
+                                    Profile
+                                </button>
+<button class="flex items-center justify-center gap-2 rounded-lg h-9 px-5 bg-primary text-white text-sm font-bold shadow-md transition-all hover:bg-primary/90">
+<span class="material-symbols-outlined text-lg">calendar_month</span>
+                                    Book Now
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Chat FAB -->
+<div class="fixed bottom-6 right-6 z-[60]">
+<button class="flex items-center justify-center size-14 rounded-full bg-primary text-white shadow-2xl hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1">chat_bubble</span>
+<div class="absolute -top-1 -right-1 size-5 bg-red-500 border-2 border-white rounded-full flex items-center justify-center text-[10px] font-bold">2</div>
+</button>
+</div>
+</body></html>

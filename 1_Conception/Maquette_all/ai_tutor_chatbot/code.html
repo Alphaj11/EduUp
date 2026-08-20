@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CEMAC AI Tutor - Chatbot</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8 flex items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">school</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">CEMAC AI Tutor</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Courses</a>
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Resources</a>
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Library</a>
+</nav>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20" data-alt="User profile avatar portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBxROVukAXt3vy4qVhQ7OKsEAbJJ037fsih9lDfZ5HakgoJqZuOGGgbvvKSC4Q4AdueaE6y1Fv1I_lobxhc6GosQ0eNudkjhb_OrIOdPX4-qX7Upd7IHvOU5BUdVCGjckiwShZ-WFLJ-gOuo-mJ7-xrLf4u5h73srVSs8bYNv2Y-lAQarHcDBp7_WJgilbGRzqauFVVNmdR8cI_JCNKTpgEpBOmTLeeQatkIsQcq-yeE2ek-t-e9jOy5MTFraDVp6Xc3jHDwIW8BL4");'>
+</div>
+</div>
+</header>
+<div class="flex flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-10 py-6 gap-6 overflow-hidden">
+<!-- Left Sidebar: Session History -->
+<aside class="hidden lg:flex w-72 flex-col bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-4 shadow-sm">
+<div class="mb-6">
+<h1 class="text-slate-900 dark:text-white text-base font-bold">Study Sessions</h1>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider mt-1">Academic year 2023/24</p>
+</div>
+<div class="flex flex-col gap-1 overflow-y-auto">
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<p class="text-sm font-semibold">Current Session</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-[20px]">history</span>
+<p class="text-sm font-medium">History: Math Analysis</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-[20px]">science</span>
+<p class="text-sm font-medium">History: Physics Waves</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<p class="text-sm font-medium">History: French Essay</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer transition-colors mt-4">
+<span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+<p class="text-sm font-medium">GCE Past Papers</p>
+</div>
+</div>
+<div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-800">
+<!-- Usage Tracker in Sidebar -->
+<div class="flex flex-col gap-2 p-1">
+<div class="flex justify-between items-center">
+<p class="text-slate-700 dark:text-slate-300 text-xs font-bold">Daily Queries</p>
+<p class="text-slate-900 dark:text-white text-xs font-bold">2/3</p>
+</div>
+<div class="h-1.5 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="h-full bg-primary" style="width: 66%;"></div>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-[10px] leading-tight">1 question remaining for today. Reset at midnight.</p>
+</div>
+</div>
+</aside>
+<!-- Main Chat Area -->
+<main class="flex flex-1 flex-col bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden relative">
+<!-- Chat Header -->
+<div class="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-none">Mathematics Assistant</h2>
+<span class="text-green-500 text-xs font-medium flex items-center gap-1">
+<span class="size-1.5 rounded-full bg-green-500"></span> Online
+                        </span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full text-xs font-semibold">Baccalauréat Prep</span>
+</div>
+</div>
+<!-- Messages Container -->
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- AI Message -->
+<div class="flex items-start gap-3 max-w-[85%]">
+<div class="size-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-700 shadow-sm">
+<span class="material-symbols-outlined text-primary text-lg">smart_toy</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium ml-1">AI Tutor • 10:30 AM</p>
+<div class="rounded-2xl rounded-tl-none bg-slate-100 dark:bg-slate-800 px-4 py-3 text-slate-800 dark:text-slate-200 shadow-sm border border-slate-200/50 dark:border-slate-700/50">
+<p class="text-sm leading-relaxed">
+                                Hello! I'm your tutor for CEMAC curriculum prep. I can help with Baccalauréat (C, D, TI) and GCE O/A Level topics. 
+                                <br/><br/>
+                                Are we tackling <strong>Quadratic Equations</strong> or <strong>Probability</strong> today? Or perhaps you have a specific problem from a past paper?
+                            </p>
+</div>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex items-start gap-3 flex-row-reverse max-w-[85%] ml-auto">
+<div class="size-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 shadow-sm" data-alt="User profile placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDnMEhaROPD7diAbnB5hOnhM83j5dXtH3NxHUakAc8GDCneYodcb60UfDFZaL_gKo0EBnsM4_ZA8hUHKbVVXSIrYv57p11UVctrdBY0Z_uakRtZx-wn4ol5rUQEbqdvAvfGDY_JEsLSKTx-bxo2UcjpKNkBKgyNJjjNeLk2AkITZ6wXo4qvtpAktJvJ7ylR1ErF1GQ7HPl4z2R78APCZLe_EBe6yN7q0z0x89JBGjcQc6-od3oOMwDVmMhaYvjBoBR5wQV13e5BsjE"); background-size: cover;'>
+</div>
+<div class="flex flex-col gap-1 items-end">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium mr-1">You • 10:31 AM</p>
+<div class="rounded-2xl rounded-tr-none bg-primary px-4 py-3 text-white shadow-md">
+<p class="text-sm leading-relaxed">
+                                Can you explain how to solve a system of linear equations using the substitution method? I have my exams in two weeks.
+                            </p>
+</div>
+</div>
+</div>
+<!-- AI Message -->
+<div class="flex items-start gap-3 max-w-[85%]">
+<div class="size-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-700 shadow-sm">
+<span class="material-symbols-outlined text-primary text-lg">smart_toy</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium ml-1">AI Tutor • 10:31 AM</p>
+<div class="rounded-2xl rounded-tl-none bg-slate-100 dark:bg-slate-800 px-4 py-3 text-slate-800 dark:text-slate-200 shadow-sm border border-slate-200/50 dark:border-slate-700/50">
+<p class="text-sm leading-relaxed">
+                                Of course! Substitution is a core skill for the CEMAC exams. Here is the logic:
+                                </p><ul class="list-decimal list-inside mt-2 space-y-2">
+<li><strong>Isolate</strong> one variable in one of the equations (e.g., x = ...).</li>
+<li><strong>Substitute</strong> that expression into the <em>other</em> equation.</li>
+<li><strong>Solve</strong> for the remaining variable.</li>
+<li><strong>Plug back</strong> to find the first variable.</li>
+</ul>
+<br/>
+                                Would you like to try with an example from a 2022 Past Paper?
+                            <p></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Chat Input Footer -->
+<div class="p-6 border-t border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md">
+<!-- Quick Replies -->
+<div class="flex gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide">
+<button class="whitespace-nowrap px-4 py-1.5 bg-primary/5 hover:bg-primary/10 border border-primary/20 text-primary text-xs font-semibold rounded-full transition-colors">
+                        Show me an example
+                    </button>
+<button class="whitespace-nowrap px-4 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold rounded-full transition-colors">
+                        Try 2022 Past Paper
+                    </button>
+<button class="whitespace-nowrap px-4 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold rounded-full transition-colors">
+                        What is Cramer's Rule?
+                    </button>
+</div>
+<!-- Main Input Field -->
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center rounded-lg h-12 w-12 bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+<div class="relative flex-1">
+<input class="w-full h-12 pl-4 pr-12 rounded-xl bg-slate-100 dark:bg-slate-800 border-none focus:ring-2 focus:ring-primary text-sm text-slate-900 dark:text-white placeholder:text-slate-500" placeholder="Ask your tutor anything..." type="text"/>
+<button class="absolute right-2 top-1.5 h-9 w-9 flex items-center justify-center rounded-lg bg-primary text-white hover:bg-primary/90 transition-transform active:scale-95 shadow-md">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+<!-- Footer warning -->
+<div class="mt-4 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[14px] text-amber-500">info</span>
+<p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">You have 1 question remaining for today's session.</p>
+</div>
+</div>
+</main>
+<!-- Right Side: Session Info (Optional Stats) -->
+<aside class="hidden xl:flex w-64 flex-col gap-4">
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm">
+<h3 class="text-sm font-bold text-slate-900 dark:text-white mb-3">Today's Goal</h3>
+<div class="space-y-3">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-green-500 text-sm mt-0.5">check_circle</span>
+<p class="text-xs text-slate-600 dark:text-slate-400">Review Linear Algebra basics</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-300 text-sm mt-0.5">radio_button_unchecked</span>
+<p class="text-xs text-slate-600 dark:text-slate-400">Solve 3 Past Paper problems</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-300 text-sm mt-0.5">radio_button_unchecked</span>
+<p class="text-xs text-slate-600 dark:text-slate-400">Master Substitution method</p>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-br from-primary to-blue-600 rounded-xl p-5 text-white shadow-lg">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined">workspace_premium</span>
+<span class="text-[10px] font-bold uppercase bg-white/20 px-2 py-0.5 rounded">Pro</span>
+</div>
+<h3 class="text-sm font-bold mb-1">Go Unlimited</h3>
+<p class="text-[11px] text-blue-100 mb-4 leading-relaxed">Get unlimited AI queries and access all CEMAC past exam solutions.</p>
+<button class="w-full py-2 bg-white text-primary text-xs font-bold rounded-lg hover:bg-blue-50 transition-colors">
+                    Upgrade Now
+                </button>
+</div>
+</aside>
+</div>
+</body></html>

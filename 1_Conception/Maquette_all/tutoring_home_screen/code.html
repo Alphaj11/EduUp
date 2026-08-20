@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tutoring Home Screen - CEMAC Tutor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "success-green": "#10b981",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-200">
+<!-- Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">CEMAC Tutor</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">How it Works</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Join as Tutor</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Courses</a>
+<div class="flex items-center gap-3 ml-4">
+<button class="px-5 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all">Login</button>
+<button class="px-5 py-2 text-sm font-semibold text-white bg-primary rounded-lg hover:bg-primary/90 transition-all shadow-sm">Sign Up</button>
+</div>
+</nav>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+<!-- Hero Section -->
+<section class="relative overflow-hidden rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/10">
+<div class="grid lg:grid-cols-2 gap-8 p-8 lg:p-12 items-center">
+<div class="space-y-6">
+<h1 class="text-4xl lg:text-5xl font-black leading-tight tracking-tight text-slate-900 dark:text-white">
+                        Unlock your potential with the best tutors in the <span class="text-primary">CEMAC region</span>.
+                    </h1>
+<p class="text-lg text-slate-600 dark:text-slate-400">
+                        Connecting students across Cameroon, Gabon, Chad, Congo, and beyond with expert educators.
+                    </p>
+<!-- Search Bar -->
+<div class="flex flex-col md:flex-row gap-3 p-2 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800">
+<div class="flex-1 flex items-center px-4 gap-2 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800 py-2">
+<span class="material-symbols-outlined text-slate-400">search</span>
+<input class="w-full border-none bg-transparent focus:ring-0 text-sm md:text-base" placeholder="What do you want to learn?" type="text"/>
+</div>
+<div class="flex-1 flex items-center px-4 gap-2 py-2">
+<span class="material-symbols-outlined text-slate-400">school</span>
+<select class="w-full border-none bg-transparent focus:ring-0 text-sm md:text-base appearance-none">
+<option>Select Grade / Level</option>
+<option>Terminale (FR)</option>
+<option>Upper Sixth (EN)</option>
+<option>1ère / Lower Sixth</option>
+<option>University</option>
+</select>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-all flex items-center justify-center gap-2">
+<span>Search</span>
+</button>
+</div>
+<div class="flex items-center gap-4 text-xs font-semibold text-slate-500 uppercase tracking-widest">
+<span>Popular:</span>
+<a class="hover:text-primary px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded" href="#">Mathematics</a>
+<a class="hover:text-primary px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded" href="#">Physics</a>
+<a class="hover:text-primary px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded" href="#">French</a>
+</div>
+</div>
+<div class="hidden lg:block">
+<div class="relative">
+<div class="w-full aspect-square rounded-2xl bg-cover bg-center shadow-2xl rotate-2" data-alt="Group of African students studying together in a modern classroom" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNAMcz7-wSj7ezqmUM6ruv20Bs_XJC0ai2zYI1djg4_06zWFBiYbcQ36mG9bK6OQUo4kRtugEZXQGJMIQRyaZ8eNju0b6tGpfWj6Le3hchMzryUxGrCBZ7rzTUG82I3w3fNQbv8FyfGzcfA2lG5MmhlSPPyAwlxgHsZrtEstrjtIc9SVsEDfQs9eXErWR46Wl4TVjTVHqLOeAaMLR6TKjWN0Rt8rsEg5fy4Y_vdh7vrnEOwYlAImd7OkaMdBok7Gi09ceSUdf_mck');">
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white dark:bg-slate-900 p-4 rounded-xl shadow-lg border border-slate-100 dark:border-slate-800 animate-bounce-slow">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-success-green flex items-center justify-center text-white">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<p class="text-xs font-bold">1,200+ Certified Tutors</p>
+<p class="text-[10px] text-slate-500 uppercase font-medium">Ready to help you now</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Access Actions -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="group p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">person_search</span>
+</div>
+<h3 class="text-lg font-bold mb-1">Find a Teacher</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Connect with local experts across Cameroon, Gabon and Chad.</p>
+</div>
+<div class="group p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-success-green/10 flex items-center justify-center text-success-green mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">video_chat</span>
+</div>
+<h3 class="text-lg font-bold mb-1">Online Classes</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Join live interactive sessions with students from the region.</p>
+</div>
+<div class="group p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</div>
+<h3 class="text-lg font-bold mb-1">Chatbot AI</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Get 24/7 instant learning assistance for any subject.</p>
+</div>
+</section>
+<!-- Featured Tutors Header -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-2xl font-bold tracking-tight">Featured Tutors</h2>
+<p class="text-slate-500 text-sm">Top-rated educators in the CEMAC area</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-full border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded-full border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Horizontal Scroll Container -->
+<div class="flex overflow-x-auto gap-6 pb-4 snap-x no-scrollbar">
+<!-- Tutor Card 1 -->
+<div class="flex-none w-72 snap-start bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-lg transition-all group">
+<div class="relative h-60 bg-cover bg-center" data-alt="Portrait of a friendly smiling female tutor" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDp8bSaaq2i0jDniLvreSlPGURrW1TZV7Hz5JmlTwIXptgPvQy6llhKcr_CDZ433_3L7N57AW_o3Qn_rp5R5TsYA1kJEu5-Jj8D7vd5gCqQDDdDNR7LIS4rLCzg6-S7PhSVi6anKzCuhzPDdzU6lT-6ch7bOCrvnLS1Vku3tQ5GAQXth4zT9SyyktwddEHjZVtgDYuoBf6PXrysiJhklw8NnqN5iVx3Ei5MaZZXswwKodUZQwGmk_iJVUcJaewPugVfHSC8TDDj5iY');">
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-amber-500 text-xs fill-1">star</span>
+<span class="text-xs font-bold">5.0</span>
+</div>
+<div class="absolute bottom-3 left-3 flex gap-1">
+<span class="px-2 py-1 bg-primary text-white text-[10px] font-bold rounded uppercase tracking-wider">Physics</span>
+<span class="px-2 py-1 bg-slate-900/60 text-white text-[10px] font-bold rounded uppercase tracking-wider">Gabon</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Mme. Clarisse M.</h4>
+<p class="text-xs text-slate-500">Expert in Baccalauréat Science</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-semibold text-primary">5,000 FCFA <span class="text-[10px] text-slate-400">/hr</span></span>
+<span class="text-[10px] font-medium text-slate-400">120+ Lessons</span>
+</div>
+<button class="w-full py-2 bg-slate-100 dark:bg-slate-800 group-hover:bg-primary group-hover:text-white text-slate-700 dark:text-slate-300 rounded-lg text-sm font-bold transition-all">View Profile</button>
+</div>
+</div>
+<!-- Tutor Card 2 -->
+<div class="flex-none w-72 snap-start bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-lg transition-all group">
+<div class="relative h-60 bg-cover bg-center" data-alt="Portrait of a male professional tutor in a suit" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClnqDZayt_oVTXwCfPWJEy_ht_H9DafBj_ued9Dt2DuEumX-nql18R8wALOuQ72NT-7Wgm005OyJrQbmhurvo6DDW3mP7gtAuSuBa2UaBntdnYBxkJlpMrcXPJrQ1U3lTNYTTTXQt5gDbeVivLRKH0vXcmsijn9wCrH1XqrbHw_ATvnHgEjV8bJNeaJm7plG9UcudYEwf_4TQPFXB_C9ygGj9mbdK15Ct5b07NlY05u1I4_BIvGGtq3QK5s7xpXwMVgYYwQM81aAw');">
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-amber-500 text-xs fill-1">star</span>
+<span class="text-xs font-bold">4.9</span>
+</div>
+<div class="absolute bottom-3 left-3 flex gap-1">
+<span class="px-2 py-1 bg-primary text-white text-[10px] font-bold rounded uppercase tracking-wider">Maths</span>
+<span class="px-2 py-1 bg-slate-900/60 text-white text-[10px] font-bold rounded uppercase tracking-wider">Cameroon</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Dr. Samuel E.</h4>
+<p class="text-xs text-slate-500">Pure &amp; Applied Maths Specialist</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-semibold text-primary">7,500 FCFA <span class="text-[10px] text-slate-400">/hr</span></span>
+<span class="text-[10px] font-medium text-slate-400">450+ Lessons</span>
+</div>
+<button class="w-full py-2 bg-slate-100 dark:bg-slate-800 group-hover:bg-primary group-hover:text-white text-slate-700 dark:text-slate-300 rounded-lg text-sm font-bold transition-all">View Profile</button>
+</div>
+</div>
+<!-- Tutor Card 3 -->
+<div class="flex-none w-72 snap-start bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-lg transition-all group">
+<div class="relative h-60 bg-cover bg-center" data-alt="Portrait of a female educator smiling" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBrNs-a7cd0eXWdl-zhMIXrVRPgz9kh21KgUOTcrxGkrqMqD9uJnaJvNWXpO5F1ZoTWWrtSynaW4zU3FzmtxRlY2M4yhMy3fVqlz5uUfxlgXR8lUJe0SB1ChDwR662dFYt4GpqEjsAUcUAJS4ZOSHfNkCOY0p7wpTGplaYin-2RJUxymCLWP0PTqsYbsOAn_w2p5wSC4pQU6WKVztjfJKZb2xztvowPjp48pn-jeKMbcJ-QKPjlVH3QnjyykiC_Gyk_7yw9MbBbaF0');">
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-amber-500 text-xs fill-1">star</span>
+<span class="text-xs font-bold">4.8</span>
+</div>
+<div class="absolute bottom-3 left-3 flex gap-1">
+<span class="px-2 py-1 bg-primary text-white text-[10px] font-bold rounded uppercase tracking-wider">Biology</span>
+<span class="px-2 py-1 bg-slate-900/60 text-white text-[10px] font-bold rounded uppercase tracking-wider">Chad</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Sarah L.</h4>
+<p class="text-xs text-slate-500">SVTE &amp; Life Sciences Expert</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-semibold text-primary">4,500 FCFA <span class="text-[10px] text-slate-400">/hr</span></span>
+<span class="text-[10px] font-medium text-slate-400">85+ Lessons</span>
+</div>
+<button class="w-full py-2 bg-slate-100 dark:bg-slate-800 group-hover:bg-primary group-hover:text-white text-slate-700 dark:text-slate-300 rounded-lg text-sm font-bold transition-all">View Profile</button>
+</div>
+</div>
+<!-- Tutor Card 4 -->
+<div class="flex-none w-72 snap-start bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-lg transition-all group">
+<div class="relative h-60 bg-cover bg-center" data-alt="Portrait of a young male French teacher" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCp_5iPGX-HlfURC5OOdU07Zvhnmxmvmiwo2oHNaiEKLIkfPuZLV1JsxTePmwhKA-zIsxbN5_r7UW8cYgtgeA_lE4xeHAg5btN54pOgwgyLnZ_edQmURlH4zFepfjk5v_ODPNegrBJrxMLDBJ6LoJchD2rfoA_KSKPAsWtIVYzIpBKa0PAXgnIC3Wft97pXLtfUrU_Nn_XID-Wu2NBjr7Th4xIQLXD63nOCiU81CMHJJU3IH3MSVD9aCjaW-sJkicJqfA3-YDpv7Hs');">
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-amber-500 text-xs fill-1">star</span>
+<span class="text-xs font-bold">4.9</span>
+</div>
+<div class="absolute bottom-3 left-3 flex gap-1">
+<span class="px-2 py-1 bg-primary text-white text-[10px] font-bold rounded uppercase tracking-wider">French Lit</span>
+<span class="px-2 py-1 bg-slate-900/60 text-white text-[10px] font-bold rounded uppercase tracking-wider">Congo</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Jean-Paul K.</h4>
+<p class="text-xs text-slate-500">French Literature - Upper Sixth</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-semibold text-primary">6,000 FCFA <span class="text-[10px] text-slate-400">/hr</span></span>
+<span class="text-[10px] font-medium text-slate-400">210+ Lessons</span>
+</div>
+<button class="w-full py-2 bg-slate-100 dark:bg-slate-800 group-hover:bg-primary group-hover:text-white text-slate-700 dark:text-slate-300 rounded-lg text-sm font-bold transition-all">View Profile</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Signals Banner -->
+<section class="bg-slate-900 text-white rounded-2xl p-8 overflow-hidden relative">
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="space-y-4 max-w-xl">
+<h3 class="text-2xl font-bold">Safe &amp; Easy Local Payments</h3>
+<p class="text-slate-400">Book lessons instantly using mobile money. We support MTN Mobile Money, Orange Money, and Moov across the CEMAC region.</p>
+<div class="flex items-center gap-6 opacity-80">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<span class="text-xs font-semibold uppercase tracking-widest">Secure Escrow</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-success-green">currency_exchange</span>
+<span class="text-xs font-semibold uppercase tracking-widest">Instant Refunds</span>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 flex flex-col items-center">
+<span class="material-symbols-outlined text-3xl mb-2">smartphone</span>
+<span class="text-[10px] font-bold uppercase">MTN MoMo</span>
+</div>
+<div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 flex flex-col items-center">
+<span class="material-symbols-outlined text-3xl mb-2">payments</span>
+<span class="text-[10px] font-bold uppercase">Orange Money</span>
+</div>
+</div>
+</div>
+<!-- Decorative background elements -->
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-primary/20 blur-[100px] rounded-full"></div>
+<div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-success-green/10 blur-[100px] rounded-full"></div>
+</section>
+</main>
+<footer class="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 mt-20 pt-12 pb-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+<div class="col-span-2 md:col-span-1 space-y-4">
+<div class="flex items-center gap-2 text-primary">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 48 48">
+<path d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z"></path>
+</svg>
+<span class="text-lg font-bold text-slate-900 dark:text-white">CEMAC Tutor</span>
+</div>
+<p class="text-sm text-slate-500">Empowering the next generation of Central African leaders through quality digital education.</p>
+</div>
+<div>
+<h4 class="font-bold text-sm mb-4">Platform</h4>
+<ul class="space-y-2 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#">Find a Tutor</a></li>
+<li><a class="hover:text-primary" href="#">How it Works</a></li>
+<li><a class="hover:text-primary" href="#">Curriculum Support</a></li>
+<li><a class="hover:text-primary" href="#">Online Classes</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-sm mb-4">Company</h4>
+<ul class="space-y-2 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#">About Us</a></li>
+<li><a class="hover:text-primary" href="#">Contact Support</a></li>
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-sm mb-4">Regional Presence</h4>
+<ul class="space-y-2 text-sm text-slate-500">
+<li>Cameroon (Douala/Yaoundé)</li>
+<li>Gabon (Libreville)</li>
+<li>Chad (N'Djamena)</li>
+<li>Congo (Brazzaville)</li>
+</ul>
+</div>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-8 gap-4">
+<p class="text-xs text-slate-400">© 2024 CEMAC Tutor Ltd. All rights reserved.</p>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-sm">alternate_email</span>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Booking Successful - EduConnect CEMAC</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec37",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#0d1b10] dark:text-[#f8fcf9]">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7f3e9] dark:border-b-[#1a3a1f] px-10 py-3 bg-white dark:bg-[#102213]">
+<div class="flex items-center gap-4 text-[#0d1b10] dark:text-[#13ec37]">
+<div class="size-8 flex items-center justify-center bg-primary/20 rounded-lg">
+<span class="material-symbols-outlined text-primary">school</span>
+</div>
+<h2 class="text-[#0d1b10] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">EduConnect CEMAC</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-[#0d1b10] dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Find Tutors</a>
+<a class="text-[#0d1b10] dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">My Classes</a>
+<a class="text-[#0d1b10] dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Resources</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex size-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-[#e7f3e9] dark:bg-[#1a3a1f] text-[#0d1b10] dark:text-white">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary" data-alt="User profile avatar portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDAu7j6sxWwo5S40SmacEGKb2DI6mJ6F3B9Ya6YZDBhDfB9xqImw4RyXNhy8YP9WU7cV_kcSUssAkFCoKJ1oFIShiPuzpwOT9lcLRgfhLhZdaGnHGWpavFERaZIMakZujdPIEJ5H4zL--tTN23lRJKM0gmYjPJ4AsPTfdnarkvhElGIKX3nUUS7xku62lHAx3PQv9BbkyscQ6MopzYueOreHc8Oydxip9AWMthO1OdOew0REzvwzSPmSceFZXXe-SD29BnomhBtJ6w");'></div>
+</div>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-12 px-4">
+<div class="layout-content-container flex flex-col max-w-[600px] flex-1">
+<!-- Success Icon and Headline -->
+<div class="flex flex-col items-center justify-center py-8">
+<div class="size-20 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'wght' 700;">check_circle</span>
+</div>
+<h1 class="text-[#0d1b10] dark:text-white tracking-light text-[32px] font-bold leading-tight px-4 text-center pb-2">Booking Confirmed!</h1>
+<p class="text-[#4c9a59] dark:text-primary/80 text-base font-normal leading-normal px-4 text-center max-w-[420px]">
+                            You're all set! A confirmation email with the session link has been sent to your inbox.
+                        </p>
+</div>
+<!-- Booking Recap Card -->
+<div class="p-4 mb-6">
+<div class="flex flex-col gap-6 rounded-xl bg-white dark:bg-[#1a3a1f] p-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-[#e7f3e9] dark:border-[#2a4d31]">
+<div class="flex items-start justify-between gap-4 border-b border-dashed border-[#e7f3e9] dark:border-[#2a4d31] pb-6">
+<div class="flex flex-col gap-1">
+<p class="text-[#4c9a59] dark:text-primary/70 text-xs font-semibold uppercase tracking-wider">Upcoming Session</p>
+<h3 class="text-[#0d1b10] dark:text-white text-xl font-bold leading-tight mt-1">Mathematics - Terminale S</h3>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-[#4c9a59] text-lg">person</span>
+<p class="text-[#0d1b10] dark:text-white/90 text-base font-medium">Dr. Amadou Koulibaly</p>
+</div>
+</div>
+<div class="size-20 bg-center bg-no-repeat bg-cover rounded-lg border-2 border-primary/20" data-alt="Portrait of tutor Dr. Amadou" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAvJMeCMeFIF0vpgVLQS5L49Z8kb08c5npL4JFLFWWQ1k0uM8EL5e74CwGKAZtvTXTVVuVzrYG1yLGprmD09NA5Qpz2rGhsZS_VJxIjHutfJc9Bijg7kRgslme7PpILU-eoCZMeaUzaOF-rsQPHrNFluRdCzVjSRrDB56H4AUH6p5tGGFRy9OVDo07VAo-UbpdFKpygMfV7culeY49S3p33xHba5sqN3iZRsGaHEzCLbHllJJzSKbx93vgqbZTMhaZvQdJBJjGaSPM");'></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex items-center gap-3">
+<div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+</div>
+<div>
+<p class="text-[#4c9a59] dark:text-primary/60 text-xs font-medium">Date</p>
+<p class="text-[#0d1b10] dark:text-white font-semibold">Oct 24, 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">schedule</span>
+</div>
+<div>
+<p class="text-[#4c9a59] dark:text-primary/60 text-xs font-medium">Time</p>
+<p class="text-[#0d1b10] dark:text-white font-semibold">14:00 (WAT)</p>
+</div>
+</div>
+</div>
+<div class="bg-primary/5 dark:bg-primary/10 rounded-lg p-4 flex items-start gap-3 border border-primary/20">
+<span class="material-symbols-outlined text-primary mt-0.5">info</span>
+<p class="text-[#0d1b10] dark:text-white/80 text-sm leading-relaxed">
+                                    A meeting link will be activated in your dashboard 10 minutes before the class starts.
+                                </p>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex justify-center">
+<div class="flex flex-1 gap-4 max-w-[480px] flex-col items-stretch px-4 py-3">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-xl h-14 px-5 bg-primary text-[#0d1b10] text-lg font-bold leading-normal tracking-[0.015em] w-full shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="truncate">Go to Dashboard</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-xl h-14 px-5 bg-[#e7f3e9] dark:bg-[#1a3a1f] text-[#0d1b10] dark:text-white text-lg font-bold leading-normal tracking-[0.015em] w-full hover:bg-[#d8eadd] dark:hover:bg-[#234b2a] transition-colors">
+<span class="material-symbols-outlined">event</span>
+<span class="truncate">Add to Calendar</span>
+</button>
+</div>
+</div>
+<!-- Footer Help -->
+<div class="mt-8 text-center pb-12">
+<p class="text-[#4c9a59] dark:text-primary/60 text-sm">
+                            Need to reschedule? <a class="font-bold underline decoration-primary underline-offset-4 hover:text-primary transition-colors" href="#">Check our policy</a>
+</p>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

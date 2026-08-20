@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Dashboard - CEMAC Learning</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav {
+            background-color: #137fec20;
+            color: #137fec;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark hidden lg:flex flex-col">
+<div class="p-6 flex flex-col h-full">
+<!-- Logo/Brand -->
+<div class="flex items-center gap-3 mb-10">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-lg font-bold leading-none">CEMAC Learning</h1>
+<p class="text-slate-500 text-xs mt-1">Student Portal</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl active-nav font-medium transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors" href="#">
+<span class="material-symbols-outlined">book_4</span>
+<span>My Courses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Payments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors" href="#">
+<span class="material-symbols-outlined">person_outline</span>
+<span>Profile Settings</span>
+</a>
+</nav>
+<!-- Help/Support -->
+<div class="mt-auto border-t border-slate-100 dark:border-slate-800 pt-6">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<span>Help Center</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto">
+<!-- Header Section -->
+<div class="max-w-6xl mx-auto px-6 py-8">
+<header class="flex flex-wrap items-center justify-between gap-6 mb-8">
+<div class="flex flex-col gap-2">
+<h2 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Welcome back, Amadou!</h2>
+<p class="text-slate-500 dark:text-slate-400 font-normal">Monday, May 22nd. You have 2 classes today.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl font-bold hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">video_call</span>
+<span>Join Next Class</span>
+</button>
+<div class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="Student profile picture" class="w-full h-full object-cover" data-alt="Close up of student portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQQ1A9l3ynY3ZJvaxgQgkEn14xQXG6602s3a-eiietmc8_VdX-SPjRNzM_ED8oJTm3KfZWaqTaiCRRnDnLHHiEyR5x2acp7md2G5mWOdxn1srZkP46eJ1SxRgao4fmNYlrYronW89_RSYxeoRAGewsOilKmbugTU31z-sL9LwSK1UWD6osugTvyjmrL0oZwCWLNkYRA5JN7VeCz-jH7Z5azdvGVDoA3idsSIPZ3oqOjSO1dmmOr4CFe9ADzdf7Kzq1BgehYd_SFxg"/>
+</div>
+</div>
+</header>
+<!-- Stats Overview -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<div class="bg-white dark:bg-background-dark p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">Learning Hours</p>
+<span class="material-symbols-outlined text-primary">schedule</span>
+</div>
+<p class="text-3xl font-bold text-slate-900 dark:text-white">42.5h</p>
+<p class="text-emerald-600 text-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> +12% this week
+                        </p>
+</div>
+<div class="bg-white dark:bg-background-dark p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">Completed Courses</p>
+<span class="material-symbols-outlined text-primary">verified</span>
+</div>
+<p class="text-3xl font-bold text-slate-900 dark:text-white">8</p>
+<p class="text-slate-400 text-sm font-medium">In line with goal</p>
+</div>
+<div class="bg-white dark:bg-background-dark p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">Upcoming Sessions</p>
+<span class="material-symbols-outlined text-primary">event</span>
+</div>
+<p class="text-3xl font-bold text-slate-900 dark:text-white">3</p>
+<p class="text-emerald-600 text-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">add</span> 2 new bookings
+                        </p>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Upcoming Classes -->
+<div class="lg:col-span-2 space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Upcoming Classes</h3>
+<a class="text-primary text-sm font-bold hover:underline" href="#">View All</a>
+</div>
+<div class="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark shadow-sm overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-900/50">
+<tr>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Subject</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Tutor</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Date &amp; Time</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-900/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="font-semibold text-slate-900 dark:text-white">Mathematics</span>
+</div>
+</td>
+<td class="px-6 py-5 text-slate-600 dark:text-slate-400">Dr. Emmanuel</td>
+<td class="px-6 py-5 text-slate-600 dark:text-slate-400">Today, 10:00 AM</td>
+<td class="px-6 py-5 text-right">
+<button class="text-primary font-bold text-sm bg-primary/10 px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-all">Join Now</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-900/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-slate-300"></div>
+<span class="font-semibold text-slate-900 dark:text-white">Physics</span>
+</div>
+</td>
+<td class="px-6 py-5 text-slate-600 dark:text-slate-400">Prof. Sarah</td>
+<td class="px-6 py-5 text-slate-600 dark:text-slate-400">May 24, 02:00 PM</td>
+<td class="px-6 py-5 text-right">
+<button class="text-slate-500 font-bold text-sm bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-lg hover:bg-slate-200 transition-all">Reminder</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Past Classes History -->
+<div class="pt-6">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Past Classes</h3>
+<div class="bg-white dark:bg-background-dark rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="p-6 flex items-center justify-between border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-600">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Advanced Chemistry</p>
+<p class="text-sm text-slate-500">May 18, 2024 • Prof. Jean-Pierre</p>
+</div>
+</div>
+<button class="flex items-center gap-1 text-slate-600 dark:text-slate-400 hover:text-primary font-medium">
+<span class="material-symbols-outlined text-lg">description</span>
+                                        Notes
+                                    </button>
+</div>
+<div class="p-6 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-600">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">English Literature</p>
+<p class="text-sm text-slate-500">May 15, 2024 • Ms. Alice</p>
+</div>
+</div>
+<button class="flex items-center gap-1 text-slate-600 dark:text-slate-400 hover:text-primary font-medium">
+<span class="material-symbols-outlined text-lg">description</span>
+                                        Notes
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar: AI Tutor & Progress -->
+<div class="space-y-6">
+<!-- AI Tutor Card -->
+<div class="bg-gradient-to-br from-primary to-blue-700 p-6 rounded-2xl text-white shadow-lg relative overflow-hidden group">
+<div class="relative z-10">
+<h4 class="text-xl font-bold mb-2">Need help fast?</h4>
+<p class="text-white/80 text-sm mb-6 leading-relaxed">Our AI Chatbot is available 24/7 to answer your academic questions and help with homework.</p>
+<button class="w-full bg-white text-primary font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all">
+<span class="material-symbols-outlined">smart_toy</span>
+                                    Ask AI Tutor
+                                </button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-20 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-9xl">forum</span>
+</div>
+</div>
+<!-- Course Progress -->
+<div class="bg-white dark:bg-background-dark p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h4 class="font-bold text-slate-900 dark:text-white mb-6">Course Progress</h4>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-medium text-slate-700 dark:text-slate-300">Pure Mathematics</span>
+<span class="text-primary font-bold">75%</span>
+</div>
+<div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full w-[75%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-medium text-slate-700 dark:text-slate-300">Organic Chemistry</span>
+<span class="text-primary font-bold">40%</span>
+</div>
+<div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full w-[40%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-medium text-slate-700 dark:text-slate-300">Global Economics</span>
+<span class="text-primary font-bold">90%</span>
+</div>
+<div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full w-[90%]"></div>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-bold py-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                View Curriculum
+                            </button>
+</div>
+<!-- Upcoming Exam Alert -->
+<div class="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 p-4 rounded-xl flex items-start gap-4">
+<span class="material-symbols-outlined text-orange-600">warning</span>
+<div>
+<p class="text-sm font-bold text-orange-800 dark:text-orange-400">Upcoming Exam</p>
+<p class="text-xs text-orange-700 dark:text-orange-500 mt-1">Physics Finals on Friday. 4 days left to prepare!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Navigation (Bottom) -->
+<div class="lg:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 flex justify-around p-4 z-50">
+<a class="text-primary flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold mt-1">Home</span>
+</a>
+<a class="text-slate-400 flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">book_4</span>
+<span class="text-[10px] font-bold mt-1">Courses</span>
+</a>
+<a class="text-slate-400 flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-bold mt-1">Schedule</span>
+</a>
+<a class="text-slate-400 flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold mt-1">Profile</span>
+</a>
+</div>
+<!-- AI Floating Action Button -->
+<button class="fixed bottom-24 right-6 lg:bottom-10 lg:right-10 w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</button>
+</body></html>
