@@ -8,3 +8,7 @@ pillow==12.1.1
 psycopg2-binary==2.9.11
 PyJWT==2.11.0
 sqlparse==0.5.5
+gunicorn==23.0.0
+whitenoise==6.9.0
+dj-database-url==2.3.0
+requests==2.32.3

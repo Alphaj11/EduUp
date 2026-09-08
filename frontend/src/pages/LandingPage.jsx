@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
+import CemacMap from '../components/CemacMap';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ArrowRight, Star, Quote, Sparkles, Trophy } from 'lucide-react';
@@ -122,6 +123,8 @@ const LandingPage = () => {
                 </section>
 
                 <Features />
+
+                <CemacMap />
 
                 {/* Inspiring Success Gallery Preview */}
                 <section className="py-16 md:py-24 px-4 sm:px-8 bg-slate-50">

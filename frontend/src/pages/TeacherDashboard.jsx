@@ -1254,71 +1254,175 @@ const TeacherDashboard = () => {
 
                         {/* Requests Map Tab */}
                         {activeTab === 'requests' && (
-                            <div className="space-y-8">
-                                <div className="bg-white p-8 rounded-3xl border border-slate-200/60 shadow-sm">
-                                    <h2 className="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-3">
-                                        <MapPin className="w-6 h-6 text-sky-500" /> 
-                                        Demandes de cours à proximité
-                                    </h2>
-                                    <p className="text-slate-500 mb-6 text-sm">Découvrez les élèves cherchant des professeurs avec vos compétences dans votre zone.</p>
-                                    
-                                    <div className="h-[500px] w-full rounded-2xl overflow-hidden border border-slate-200">
-                                        <MapContainer center={mapCenter} zoom={12} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
-                                            <TileLayer
-                                                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                                url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-                                            />
-                                            <Circle center={mapCenter} radius={searchRadius * 1000} pathOptions={{ color: '#0ea5e9', fillColor: '#0ea5e9', fillOpacity: 0.1 }} />
-                                            <Marker position={mapCenter}>
-                                                <Popup>Votre position</Popup>
-                                            </Marker>
-                                            {requests.map(req => (
-                                                <Marker key={req.id} position={[req.latitude, req.longitude]}>
-                                                    <Popup>
-                                                        <div className="min-w-[220px] p-1">
-                                                            <div className="mb-3">
-                                                                <div className="flex items-center gap-3 mb-3">
-                                                                    <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center text-sky-600 shrink-0">
-                                                                        <BookOpen className="w-5 h-5" />
-                                                                    </div>
-                                                                    <div className="min-w-0">
-                                                                        <h4 className="font-black text-slate-900 text-sm leading-tight truncate">{req.level?.name || 'Niveau non spécifié'}</h4>
-                                                                        <p className="text-[10px] font-bold text-sky-600 uppercase tracking-widest truncate">{req.subjects?.map(s => s.name).join(', ') || 'Matières'}</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100 space-y-1.5">
-                                                                    <p className="text-xs text-slate-600 font-medium flex items-center gap-2">
-                                                                        <Clock className="w-3.5 h-3.5 text-slate-400" /> <span className="truncate">{req.rhythm || 'Rythme à définir'}</span>
-                                                                    </p>
-                                                                    {req.address && (
-                                                                        <p className="text-xs text-slate-600 font-medium flex items-center gap-2">
-                                                                            <MapPin className="w-3.5 h-3.5 text-slate-400" /> <span className="truncate">{req.address}</span>
-                                                                        </p>
-                                                                    )}
-                                                                </div>
-                                                            </div>
-                                                            <button 
-                                                                onClick={async () => {
-                                                                    setExpressingInterest(req.id);
-                                                                    try {
-                                                                        await api.post('course-interests/', { course_request: req.id });
-                                                                        alert("Votre intérêt a été transmis avec succès ! Vous pouvez retrouver cet élève dans votre messagerie si besoin.");
-                                                                        setRequests(prev => prev.filter(r => r.id !== req.id));
-                                                                    } catch (e) {
-                                                                        alert(e.response?.data?.error || "Erreur lors de la transmission");
-                                                                    } finally {
-                                                                         setExpressingInterest(null);
-                                                                    }
-                                                                }}
-                                                                disabled={expressingInterest === req.id}
-                                                                className="w-full py-3 bg-slate-900 text-white rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg shadow-slate-900/10 hover:bg-slate-800 active:scale-95 transition-all disabled:opacity-50 flex justify-center items-center gap-2"
-                                                            >
-                                                                {expressingInterest === req.id ? 'Transmission...' : 'Je suis intéressé(e)'}
-                                                            </button>
+                            <div className="space-y-5">
+                                {/* Header bar */}
+                                <div className="bg-white rounded-2xl border border-slate-200/60 shadow-sm px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+                                    <div>
+                                        <h2 className="text-lg font-black text-slate-900 flex items-center gap-2">
+                                            <MapPin className="w-5 h-5 text-sky-500" /> Demandes à proximité
+                                        </h2>
+                                        <p className="text-slate-400 text-xs mt-0.5">
+                                            {requests.length > 0
+                                                ? `${requests.length} annonce${requests.length > 1 ? 's' : ''} correspondant à votre profil`
+                                                : 'Aucune annonce dans votre zone pour l\'instant'}
+                                        </p>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-xs text-slate-500 font-bold">Rayon :</span>
+                                        {[10, 25, 50, 100].map(r => (
+                                            <button
+                                                key={r}
+                                                onClick={() => setSearchRadius(r)}
+                                                className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all ${searchRadius === r ? 'bg-sky-600 text-white shadow-md shadow-sky-200' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'}`}
+                                            >
+                                                {r} km
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Map + sidebar grid */}
+                                <div className="grid lg:grid-cols-5 gap-4 items-start">
+
+                                    {/* Request cards sidebar */}
+                                    <div className="lg:col-span-2 flex flex-col gap-3 max-h-[560px] overflow-y-auto pr-0.5">
+                                        {requests.length === 0 ? (
+                                            <div className="bg-white rounded-2xl border border-slate-200 p-10 text-center">
+                                                <MapPin className="w-10 h-10 text-slate-200 mx-auto mb-3" />
+                                                <p className="text-slate-500 font-medium text-sm">Aucune demande disponible</p>
+                                                <p className="text-slate-400 text-xs mt-1">Revenez plus tard ou élargissez le rayon</p>
+                                            </div>
+                                        ) : requests.map((req, i) => {
+                                            const cardColors = ['#f59e0b','#8b5cf6','#22c55e','#f97316','#ec4899','#0ea5e9'];
+                                            const color = cardColors[i % cardColors.length];
+                                            return (
+                                                <div key={req.id} className="bg-white rounded-2xl border border-slate-200 p-4 hover:border-slate-300 hover:shadow-md transition-all group">
+                                                    <div className="flex items-start gap-3">
+                                                        <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 text-white font-black text-sm" style={{ background: color }}>
+                                                            {i + 1}
                                                         </div>
-                                                    </Popup>
-                                                </Marker>
-                                            ))}
+                                                        <div className="min-w-0 flex-1">
+                                                            <h4 className="font-black text-slate-900 text-sm leading-tight">{req.level?.name || 'Niveau non spécifié'}</h4>
+                                                            <p className="text-xs font-bold mt-0.5" style={{ color }}>{req.subjects?.map(s => s.name).join(' · ') || 'Matières'}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div className="mt-3 space-y-1 pl-12">
+                                                        <p className="text-xs text-slate-500 flex items-center gap-1.5">
+                                                            <Clock className="w-3 h-3 text-slate-400 shrink-0" />{req.rhythm || 'Rythme à définir'}
+                                                        </p>
+                                                        {req.address && (
+                                                            <p className="text-xs text-slate-400 flex items-center gap-1.5">
+                                                                <MapPin className="w-3 h-3 shrink-0" />{req.address}
+                                                            </p>
+                                                        )}
+                                                    </div>
+                                                    <button
+                                                        onClick={async () => {
+                                                            setExpressingInterest(req.id);
+                                                            try {
+                                                                await api.post('course-interests/', { course_request: req.id });
+                                                                alert("Profil transmis ! L'élève recevra votre profil complet par message.");
+                                                                setRequests(prev => prev.filter(r => r.id !== req.id));
+                                                            } catch (e) {
+                                                                alert(e.response?.data?.error || "Erreur lors de la transmission");
+                                                            } finally {
+                                                                setExpressingInterest(null);
+                                                            }
+                                                        }}
+                                                        disabled={expressingInterest === req.id}
+                                                        className="w-full mt-3 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all disabled:opacity-50 active:scale-95 text-white"
+                                                        style={{ background: expressingInterest === req.id ? '#94a3b8' : '#0f172a' }}
+                                                    >
+                                                        {expressingInterest === req.id ? 'Envoi en cours...' : 'Postuler →'}
+                                                    </button>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+
+                                    {/* Map */}
+                                    <div className="lg:col-span-3 h-[560px] rounded-3xl overflow-hidden shadow-lg" style={{ border: '1px solid rgba(0,0,0,0.08)' }}>
+                                        <MapContainer
+                                            center={mapCenter}
+                                            zoom={11}
+                                            scrollWheelZoom={true}
+                                            style={{ height: '100%', width: '100%' }}
+                                            attributionControl={false}
+                                            zoomControl={true}
+                                        >
+                                            <TileLayer
+                                                url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+                                            />
+                                            <Circle
+                                                center={mapCenter}
+                                                radius={searchRadius * 1000}
+                                                pathOptions={{ color: '#38bdf8', fillColor: '#38bdf8', fillOpacity: 0.05, weight: 1.5, dashArray: '8 6' }}
+                                            />
+                                            {/* My position dot */}
+                                            <Marker
+                                                position={mapCenter}
+                                                icon={L.divIcon({
+                                                    className: '',
+                                                    html: `<div style="width:18px;height:18px;background:#38bdf8;border:3px solid white;border-radius:50%;box-shadow:0 0 0 5px rgba(56,189,248,0.25),0 2px 8px rgba(0,0,0,0.4)"></div>`,
+                                                    iconSize: [18, 18],
+                                                    iconAnchor: [9, 9],
+                                                })}
+                                            >
+                                                <Popup closeButton={false}>
+                                                    <div style={{ fontFamily: 'system-ui', fontSize: 13, fontWeight: 700, color: '#0f172a' }}>📍 Votre position</div>
+                                                </Popup>
+                                            </Marker>
+                                            {/* Request markers */}
+                                            {requests.map((req, i) => {
+                                                const colors = ['#f59e0b','#8b5cf6','#22c55e','#f97316','#ec4899','#0ea5e9'];
+                                                const color = colors[i % colors.length];
+                                                return (
+                                                    <Marker
+                                                        key={req.id}
+                                                        position={[req.latitude, req.longitude]}
+                                                        icon={L.divIcon({
+                                                            className: '',
+                                                            html: `<div style="width:36px;height:36px;background:${color};border:3px solid white;border-radius:50%;box-shadow:0 3px 14px rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:13px;font-family:system-ui;cursor:pointer">${i + 1}</div>`,
+                                                            iconSize: [36, 36],
+                                                            iconAnchor: [18, 18],
+                                                        })}
+                                                    >
+                                                        <Popup closeButton={false} maxWidth={240}>
+                                                            <div style={{ fontFamily: 'system-ui', padding: '4px 2px', minWidth: 210 }}>
+                                                                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+                                                                    <div style={{ width: 28, height: 28, borderRadius: 8, background: color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 900, fontSize: 12 }}>{i + 1}</div>
+                                                                    <div>
+                                                                        <div style={{ fontWeight: 900, fontSize: 13, color: '#0f172a', lineHeight: 1.2 }}>{req.level?.name || 'Niveau'}</div>
+                                                                        <div style={{ fontSize: 10, color, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{req.subjects?.map(s => s.name).join(' · ')}</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div style={{ background: '#f8fafc', borderRadius: 10, padding: '8px 10px', marginBottom: 10, fontSize: 11, color: '#475569', lineHeight: 1.6 }}>
+                                                                    <div>🕒 {req.rhythm}</div>
+                                                                    {req.address && <div>📍 {req.address}</div>}
+                                                                </div>
+                                                                <button
+                                                                    onClick={async () => {
+                                                                        setExpressingInterest(req.id);
+                                                                        try {
+                                                                            await api.post('course-interests/', { course_request: req.id });
+                                                                            alert("Profil transmis ! L'élève recevra votre profil complet par message.");
+                                                                            setRequests(prev => prev.filter(r => r.id !== req.id));
+                                                                        } catch (e) {
+                                                                            alert(e.response?.data?.error || "Erreur");
+                                                                        } finally {
+                                                                            setExpressingInterest(null);
+                                                                        }
+                                                                    }}
+                                                                    disabled={expressingInterest === req.id}
+                                                                    style={{ width: '100%', padding: '9px 0', background: '#0f172a', color: 'white', border: 'none', borderRadius: 10, cursor: 'pointer', fontWeight: 900, fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.12em', opacity: expressingInterest === req.id ? 0.6 : 1 }}
+                                                                >
+                                                                    {expressingInterest === req.id ? 'Envoi...' : 'Postuler →'}
+                                                                </button>
+                                                            </div>
+                                                        </Popup>
+                                                    </Marker>
+                                                );
+                                            })}
                                         </MapContainer>
                                     </div>
                                 </div>
