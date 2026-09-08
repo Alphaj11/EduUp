@@ -36,7 +36,6 @@ services:
     name: eduup-app
     runtime: static
     plan: free
-    region: frankfurt
     rootDir: frontend
     buildCommand: "npm install && npm run build"
     staticPublishPath: dist
